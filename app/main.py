@@ -21,6 +21,7 @@ models.Base.metadata.create_all(bind = engine)
 
 
 
+#my_posts = [{"title" : "title post 1", "content": "content post 1", "id": 1}]
 
 
 
@@ -35,6 +36,19 @@ def find_index(id):
     for i, p in enumerate(my_posts):
         if p['id'] == id:
             return i
+
+
+
+origins = ["*"]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 
 @app.get("/")
