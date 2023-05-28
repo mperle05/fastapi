@@ -21,23 +21,6 @@ models.Base.metadata.create_all(bind = engine)
 
 
 
-my_posts = [{"title" : "title post 1", "content": "content post 1", "id": 1}]
-
-while True:
-    try: 
-        conn = psycopg2.connect(host = 'localhost', database ='fastapi', user = 'postgres', 
-                                password = 'q2NfjBn8Y6Un7n', cursor_factory = RealDictCursor)
-        cursor = conn.cursor()
-        print("Database succesfull")
-        break
-    except Exception as error:  
-        print("databese failed.")
-        print("Error:", error)
-        time.sleep(2)
-
-
-
-
 
 
 
