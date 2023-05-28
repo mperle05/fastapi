@@ -53,13 +53,15 @@ def find_index(id):
         if p['id'] == id:
             return i
 
+
+@app.get("/")
+def root():
+    return {"message": "Hello API  "}
+
+
 app.include_router(post.router)
 app.include_router(user.router)
 app.include_router(auth.router)
 
 
-
-@app.get("/")
-def root():
-    return {"message": "Hello API  "}
 
