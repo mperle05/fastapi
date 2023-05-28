@@ -17,12 +17,12 @@ from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
-models.Base.metadata.create_all(bind = engine)
+#models.Base.metadata.create_all(bind = engine)
 
 
 
 
-#my_posts = [{"title" : "title post 1", "content": "content post 1", "id": 1}]
+my_posts = [{"title" : "title post 1", "content": "content post 1", "id": 1}]
 
 
 
