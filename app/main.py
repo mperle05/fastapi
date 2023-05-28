@@ -11,6 +11,7 @@ from . import models,schema, utils
 from .database import engine, get_db
 from typing import Optional, List
 from .routers import post, user, auth
+from fastapi.middleware.cors import CORSMiddleware
 
 
 
