@@ -1,8 +1,8 @@
 """create posts table
 
-Revision ID: cfcc4fd02d18
+Revision ID: 01b2584928a5
 Revises: 
-Create Date: 2021-08-29 22:50:42.028498
+Create Date: 2023-05-28 22:54:26.013153
 
 """
 from alembic import op
@@ -10,10 +10,12 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'cfcc4fd02d18'
+revision = '01b2584928a5'
 down_revision = None
 branch_labels = None
 depends_on = None
+
+
 
 
 def upgrade():

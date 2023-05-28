@@ -1,8 +1,8 @@
 """add phone number
 
-Revision ID: c47ecbf163d4
-Revises: 036aa392dfb0
-Create Date: 2021-08-29 23:42:58.021392
+Revision ID: de2dcc32f478
+Revises: 605a315e3edd
+Create Date: 2023-05-28 23:10:32.450497
 
 """
 from alembic import op
@@ -10,10 +10,11 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'c47ecbf163d4'
-down_revision = '036aa392dfb0'
+revision = 'de2dcc32f478'
+down_revision = '605a315e3edd'
 branch_labels = None
 depends_on = None
+
 
 
 def upgrade():
