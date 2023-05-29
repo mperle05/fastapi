@@ -21,7 +21,7 @@ def create_user(user: schema.UserCreate, db: Session = Depends(get_db)):
 
     new_user = models.User(**user.dict())
     db.add(new_user)
-    db.commit()
+    #db.commit()
     db.refresh(new_user)
 
     return new_user
