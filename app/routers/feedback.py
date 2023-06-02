@@ -14,7 +14,7 @@ router = APIRouter(
 
 
 @router.get("/", response_model=List[schemas.FeedbackOut])
-def get_feedbcaks(db: Session = Depends(get_db), current_user: int = Depends(oauth2.get_current_user), limit: int = 10, skip: int = 0, search: Optional[str] = ""):
+def get_feedbacks(db: Session = Depends(get_db), current_user: int = Depends(oauth2.get_current_user)):
 
     feedbacks = db.query(models.Feedback).all()
     return feedbacks
@@ -23,7 +23,7 @@ def get_feedbcaks(db: Session = Depends(get_db), current_user: int = Depends(oau
 @router.post("/", status_code=status.HTTP_201_CREATED, response_model=schemas.Feedback)
 def create_feedbacks(feedback: schemas.FeedbackCreate, db: Session = Depends(get_db), current_user: int = Depends(oauth2.get_current_user)):
 
-    new_feedback = models.Feedback(owner_id=current_user.id, **feedback.dict())
+    new_feedback = models.Feedback(**feedback.dict())
     db.add(new_feedback)
     db.commit()
     db.refresh(new_feedback)
@@ -57,7 +57,7 @@ def delete_feedback(id: int, db: Session = Depends(get_db), current_user: int = 
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
                             detail=f"feedback with id: {id} does not exist")
 
-    if 1 != current_user.id:
+    if 5 != current_user.id:
         raise HTTPException(status_code=status.HTTP_403_FORBIDDEN,
                             detail="Not authorized to perform requested action")
 

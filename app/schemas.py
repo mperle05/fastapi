@@ -71,7 +71,6 @@ class Vote(BaseModel):
 class FeedbackBase(BaseModel):
     title: str
     content: str
-    published: bool = True
 
 
 class FeedbackCreate(FeedbackBase):
@@ -81,15 +80,12 @@ class FeedbackCreate(FeedbackBase):
 class Feedback(FeedbackBase):
     id: int
     created_at: datetime
-    owner_id: int
-    owner: UserOut
 
     class Config:
         orm_mode = True
 
 class FeedbackOut(BaseModel):
-    Post: Post
-    votes: int
+    Feedback: Feedback
 
     class Config:
         orm_mode = True
