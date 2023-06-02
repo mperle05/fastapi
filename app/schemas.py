@@ -64,3 +64,32 @@ class TokenData(BaseModel):
 class Vote(BaseModel):
     post_id: int
     dir: conint(le=1)
+
+
+
+
+class FeedbackBase(BaseModel):
+    title: str
+    content: str
+    published: bool = True
+
+
+class FeedbackCreate(FeedbackBase):
+    pass
+
+
+class Feedback(FeedbackBase):
+    id: int
+    created_at: datetime
+    owner_id: int
+    owner: UserOut
+
+    class Config:
+        orm_mode = True
+
+class FeedbackOut(BaseModel):
+    Post: Post
+    votes: int
+
+    class Config:
+        orm_mode = True
