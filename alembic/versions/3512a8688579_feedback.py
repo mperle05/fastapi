@@ -20,8 +20,10 @@ def upgrade() -> None:
     op.create_table('feedback',sa.Column('id', 
                     sa.Integer(), nullable=False,
                     primary_key=True), sa.Column('title', sa.String(), nullable=False))
+    op.add_column('feedback', sa.Column('content', sa.String(), nullable=False))
     op.add_column('feedback', sa.Column(
         'created_at', sa.TIMESTAMP(timezone=True), nullable=False, server_default=sa.text('NOW()')),)
+    
     pass
 
 

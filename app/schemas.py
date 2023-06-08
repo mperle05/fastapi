@@ -85,7 +85,10 @@ class Feedback(FeedbackBase):
         orm_mode = True
 
 class FeedbackOut(BaseModel):
-    Feedback: Feedback
+    id: int
+    title: str
+    content: str
+    created_at: datetime
 
     class Config:
         orm_mode = True
