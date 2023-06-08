@@ -18,6 +18,9 @@ def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
     # hash the password - user.password
     hashed_password = utils.hash(user.password)
     user.password = hashed_password
+    if db.query(models.User).filter(models.User.email == user.email).count() != 0:
+        raise HTTPException(status_code=status.HTTP_423_LOCKED,
+                            detail=f"User does already exist")
 
     new_user = models.User(**user.dict())
     db.add(new_user)
