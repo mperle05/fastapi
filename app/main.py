@@ -30,7 +30,6 @@ app.include_router(feedback.router)
 
 @app.get("/")
 def root():
-    print ({settings.database_name})
     return {"message": "Post App"}
 
 
