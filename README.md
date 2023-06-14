@@ -51,3 +51,9 @@ git config --global http.proxy http://192.168.10.10:3128
 REM For Heroku
 set HTTP_PROXY=http://192.168.10.10:3128
 ````
+
+# Unsetting up the proxy for Gutenbergschule
+````
+git config --global --unset http.proxy
+set HTTP_PROXY=
+````
