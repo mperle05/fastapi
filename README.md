@@ -34,11 +34,12 @@ pip install alembic
 
 
 ````
+venv\Scripts\activate.bat
 git add --all
 git commit -m "fehlerbehebung"
 git push origin main
+heroku login
 git push heroku main 
 heroku ps:restart 
 heroku run "alembic upgrade head"
-venv\Scripts\activate.bat
 ````
