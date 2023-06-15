@@ -41,14 +41,13 @@ git push origin main
 heroku login
 git push heroku main 
 heroku ps:restart 
+
 heroku run "alembic upgrade head"
 ````
 
 # Setting up the proxy for Gutenbergschule
 ````
-REM For GIT:
 git config --global http.proxy http://192.168.10.10:3128
-REM For Heroku
 set HTTP_PROXY=http://192.168.10.10:3128
 ````
 
